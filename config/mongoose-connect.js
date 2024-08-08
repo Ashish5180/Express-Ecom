@@ -1,13 +1,16 @@
 import mongoose from "mongoose";
+import config from "config";
+import debug from 'debug';
 
-mongoose
-.connect("mongodb://127.0.0.1:27017/ecommerce")
+const dbgr = debug('development:mongoose');
+
+mongoose.connect(`${config.get("MONGODB_URI")}/ecommerce`)
 .then(() => {
-    console.log("database connected");
+    dbgr("Database connected");
 })
 .catch((err) => {
-    console.log(err);
-})
+    dbgr(err);
+});
 
 const db = mongoose.connection;
 

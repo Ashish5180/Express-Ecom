@@ -19,6 +19,6 @@ const ownerSchema = new mongoose.Schema({
     gstin: String
 });
 
-const owner= mongoose.model("owner", ownerSchema);
+const ownerModal= mongoose.model("owner", ownerSchema);
 
-export default owner;
+export default ownerModal;
